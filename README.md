@@ -1,18 +1,18 @@
-# Informatik 3
+# Mikrocomputertechnik 3
 
-Begleitprojekt für Informatik 3 im Kurs TFE22-2 an der DHBW Ravensburg Campus Friedrichshafen
+Begleitprojekt für Mikrocomputertechnik 3 im Kurs TEA22 an der DHBW Ravensburg Campus Friedrichshafen
 
 **WICHTIG** Bitte verwenden sie zur Entwicklung die vorgefertigten Umgebungen.
 
 ## Prepared Environments
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/graugans/tfe22-2?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/graugans/tea22?quickstart=1)
 
 ## Synchronisation des eignen Forks
 
 Es wird davon ausgegangen, dass Sie einen Fork angelegt haben und von diesen geklont haben. Damit entspricht Ihr Fork der Bezeichnung ``origin``. Siehe hierzu auch die [Hinweise in der ersten Übungsaufgabe](exercise-001#upstream-hinzuf%C3%BCgen).
 
-Um die aktuellen Änderungen in die lokale Kopie des ``tfe22-2`` Repository zu übertragen sollten Sie zunächst ein ``git fetch`` durchführen
+Um die aktuellen Änderungen in die lokale Kopie des ``TEA22`` Repository zu übertragen sollten Sie zunächst ein ``git fetch`` durchführen
 
 ```sh
 git fetch upstream
