@@ -105,13 +105,16 @@
         "armadillo": "cpp",
         "shared_mutex": "cpp"
     },
-    "cSpell.language": "en,en-GB",
+    "cSpell.language": "en,en-GB,de,de-DE",
     "cSpell.words": [
         "codespace",
         "Codespaces",
+        "DHBW",
         "googletest",
+        "graugans",
         "gtest",
         "mathjax",
+        "Strava",
         "Struct",
         "Wilking"
     ],
