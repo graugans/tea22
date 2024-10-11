@@ -1,5 +1,17 @@
 # Aufgabenstellung
 
+## Git Kommandos
+
+```sh
+git status
+git branch -a
+git remote -v
+git fetch --all
+git checkout -b solution-001
+git add -p
+...
+```
+
 ## Parameterraum
 
 Ändern Sie die Vorlage so ab, dass Sie einen Parameter ``count`` mittels Kommandozeile ``-c,--count`` übergeben können. Falls kein Parameter angegeben wird, so ist der Standardwert mit 20 festzusetzen.
