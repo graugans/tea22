@@ -11,16 +11,24 @@ auto main(int argc, char **argv) -> int
      * More info at https://github.com/CLIUtils/CLI11#usage
      */
     CLI::App app{PROJECT_NAME};
+    std::int16_t count = 20;
     try
     {
         app.set_version_flag("-V,--version", fmt::format("{} {}", PROJECT_VER, PROJECT_BUILD_DATE));
+
+        app.add_option("-c,--count", count, "size of array");
         app.parse(argc, argv);
     }
     catch (const CLI::ParseError &e)
     {
         return app.exit(e);
     }
+    std::vector<int> nums(count);
 
+    for(std::int16_t i = 0; i<count;i++)
+    {
+        nums[i] = rand()%100+1;
+    }
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
