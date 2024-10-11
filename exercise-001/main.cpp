@@ -12,11 +12,12 @@ auto main(int argc, char **argv) -> int
      */
     CLI::App app{PROJECT_NAME};
     std::int16_t count = 20;
+    
     try
     {
         app.set_version_flag("-V,--version", fmt::format("{} {}", PROJECT_VER, PROJECT_BUILD_DATE));
 
-        app.add_option("-c,--count", count, "size of array");
+        app.add_option("-c,--count", count, "Size of array");
         app.parse(argc, argv);
     }
     catch (const CLI::ParseError &e)
