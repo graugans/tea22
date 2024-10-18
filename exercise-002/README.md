@@ -1,5 +1,13 @@
 # Aufgabenstellung
 
+## Git commands
+```sh
+git fetch --all
+git switch -c solution-002 upstream/excercise-002 
+git push -u origin solution-002 
+```
+
+
 ## Die Zuordnung der Variablen in Segmente
 
 In dieser gemeinsam bearbeiteten Übungsaufgabe wollen wir uns mit den verschiedenen Speichersegmenten beschäftigen.
