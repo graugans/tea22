@@ -30,5 +30,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 # Resources: https://mcuoneclipse.com/2013/04/14/text-data-and-bss-code-and-data-size-explained/
 add_custom_command(TARGET ${PROJECT_NAME}
     POST_BUILD
-    COMMAND size ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}
+    COMMAND size --format=sysv  ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}
 )
