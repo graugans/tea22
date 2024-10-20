@@ -42,5 +42,13 @@ auto main(int argc, char** argv) -> int
     fmt::print("Value of var {} address of var {}\n", var, fmt::ptr(&var));
     fmt::print("Value of var2 {} address of var2 {}\n", var2, fmt::ptr(&var2));
 
+    fmt::print("Sizeof Big Data Blob {} address {}\n", sizeof(big_data_blob), fmt::ptr(big_data_blob));
+
+    const int* array_ptr = big_data_blob;
+    fmt::print("Sizeof Big Data Blob {} address {}\n", sizeof(array_ptr), fmt::ptr(array_ptr));
+
+    fmt::print("array_ptr[0] {}\n", array_ptr[0]);
+    fmt::print("big_data_blob[0] {}\n", big_data_blob[0]);
+
     return 0; /* exit gracefully*/
 }

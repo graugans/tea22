@@ -15,7 +15,7 @@ int data2 = 43;
 const int rodata = 45;
 const int rodata2 = 43;
 
-
+const int big_data_blob[] = {42,0xff};
 
 void doSomething(int value)
 {
@@ -33,6 +33,10 @@ int* doReturnAPtr()
 {
     int value = 4711;
     fmt::print("doReturnAPtr, value {}\n", value);
+    /* 
+     * This causes a warning and shall be avoided by all means
+     * warning: address of stack memory associated with local variable 'value' returned [-Wreturn-stack-address]
+     */
     return &value;
 }
 
