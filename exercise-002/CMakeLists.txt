@@ -19,3 +19,16 @@ add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE
                                         fmt::fmt
 )
+
+# This creates a custom command that prints out the firmware binary size information.
+# Text is the code, data stores variables that have a non-zero initial value and have to be stored in flash,
+# bss stores zero initial values that only take up ram.
+# dec and hex are just the cumulative size in decimal and hexadecimal notation respectively.
+# Example:
+# text	   data	    bss	    dec	    hex	filename
+# 3432	     20	   1572	   5024	   13a0	most_commented_embedded_cmakelists.elf
+# Resources: https://mcuoneclipse.com/2013/04/14/text-data-and-bss-code-and-data-size-explained/
+add_custom_command(TARGET ${PROJECT_NAME}
+    POST_BUILD
+    COMMAND size ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${PROJECT_NAME}
+)
