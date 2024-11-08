@@ -27,13 +27,14 @@ auto main(int argc, char** argv) -> int
     fmt::print("Paula ist {} Jahre alt! \n", paula.alter); /18/
     pPers = &paula;
     fmt::print("Die Person auf die der Zeiger pPers zeigt ist {} Jahre alt! \n", pPers->alter); 
-    /jzt kommt 18 raus, da zeiger auf paula gewechselt wurde/
+    /*jzt kommt 18 raus, da zeiger auf paula gewechselt wurde*/
     
     // paul.name = "Paul"; geht nicht
     char* pName = "Paul jr.";
     strncpy(paul.name, "Paul", 25); //paul.name gleich wie &paul.name[0]
     fmt::print("Der Name von Paul ist {}", paul.name); 
 
- 
+    *pPers = paul;
+    fmt::print("Die Person auf die der Zeiger pPers zeigt ist {} Jahre alt! \n", pPers->alter);
     return 0; /* exit gracefully*/
 }
