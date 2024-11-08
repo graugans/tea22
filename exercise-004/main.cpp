@@ -1,6 +1,10 @@
 #include <fmt/chrono.h>
 #include <fmt/format.h>
 
+#include "triangle.h"
+//...
+#include "triangle.h"
+
 //#define MAX_NAME_LENGTH 25
 
 const unsigned int MAX_NAME_LENGTH = 25;
@@ -44,5 +48,19 @@ auto main(int argc, char** argv) -> int {
         pPers->alter
     );
 
+    Triangle* trig = newTriangle();
+
+    fmt::println("Side a of the triangle trig {}",trig->side_a);
+    fmt::println("Side a of the triangle trig {}",trig->side_b);
+    fmt::println("Side c of the triangle trig {}",trig->side_c);
+
+    // Speicherloch
+    //trig = newTriangle();
+
+    // Richtig
+    freeTriangle(trig);
+    trig = newTriangleWithValues(42,34,56);
+
+    fmt::println("The perimeter is: {}", perimeter(trig));
     return 0; /* exit gracefully*/
 }
