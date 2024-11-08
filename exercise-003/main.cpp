@@ -1,45 +1,8 @@
 #include <fmt/chrono.h>
 #include <fmt/format.h>
 
-/* .bss Segment */
-int foo;
-int foo2 = 0;
+#include "module.h"
 
-/* .data Segment */
-int data = 45;
-int data2 = 43;
-
-/* .rodata Segment */
-const int rodata = 45;
-const int rodata2 = 43;
-
-
-
-void doSomething(int value)
-{
-    value = value + 1;
-    fmt::print("doSomething, value {}\n", value);
-}
-
-void doSomethingPtr(int* ptr)
-{
-    *ptr = *ptr + 1;
-    fmt::print("doSomethingPtr, value {}\n", *ptr);
-}
-
-int* doReturnAPtr()
-{
-    int value = 4711;
-    fmt::print("doReturnAPtr, value {}\n", value);
-    return &value;
-}
-
-void doSomethingStatic()
-{
-    static int value = 56;
-    value = value + 1;
-    fmt::print("doSomethingStatic, value {}\n", value);
-}
 auto main(int argc, char** argv) -> int
 {
     /**
@@ -78,6 +41,14 @@ auto main(int argc, char** argv) -> int
     static int var2;
     fmt::print("Value of var {} address of var {}\n", var, fmt::ptr(&var));
     fmt::print("Value of var2 {} address of var2 {}\n", var2, fmt::ptr(&var2));
+
+    fmt::print("Sizeof Big Data Blob {} address {}\n", sizeof(big_data_blob), fmt::ptr(big_data_blob));
+
+    const int* array_ptr = big_data_blob;
+    fmt::print("Sizeof Big Data Blob {} address {}\n", sizeof(array_ptr), fmt::ptr(array_ptr));
+
+    fmt::print("array_ptr[0] {}\n", array_ptr[0]);
+    fmt::print("big_data_blob[0] {}\n", big_data_blob[0]);
 
     return 0; /* exit gracefully*/
 }

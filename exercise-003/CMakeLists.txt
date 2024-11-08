@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.10.2)
 
 # Set the project name to your project name, template isn't very descriptive
-project (exercise-002 VERSION 0.0.1 LANGUAGES CXX)
+project (exercise-003 VERSION 0.0.1 LANGUAGES CXX)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -13,7 +13,10 @@ find_package(fmt REQUIRED)
 
 
 # add the executable
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} 
+                                main.cpp
+                                module.cpp
+)
 
 # Add libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
