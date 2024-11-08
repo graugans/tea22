@@ -18,9 +18,29 @@ find_package(Catch2 3 REQUIRED)
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/config.h.in" "${CMAKE_CURRENT_BINARY_DIR}/include/config.h" @ONLY)
 include_directories("${CMAKE_CURRENT_BINARY_DIR}/include") # add the output path to the include PATH
 
-# add the executable
-add_executable(${PROJECT_NAME} main.cpp)
 
+# Specify the paths
+set(INPUT_IMAGE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/assets/image.jpg")       # Path to the JPG image
+set(GENERATED_HEADER_PATH "${CMAKE_CURRENT_BINARY_DIR}/include/image.h")    # Output header file path
+
+# Add a custom command to run the Python script
+add_custom_command(
+    OUTPUT ${GENERATED_HEADER_PATH}
+    COMMAND ${CMAKE_COMMAND} -E env python3 ${CMAKE_CURRENT_SOURCE_DIR}/jpg_to_header.py ${INPUT_IMAGE_PATH} ${GENERATED_HEADER_PATH}
+    DEPENDS ${INPUT_IMAGE_PATH}
+    COMMENT "Generating header file from image..."
+)
+
+# Add a custom target that depends on the generated header file
+add_custom_target(generate_image_header ALL DEPENDS ${GENERATED_HEADER_PATH})
+
+# add the executable
+add_executable(${PROJECT_NAME} main.cpp ${GENERATED_HEADER_PATH})
+
+
+# Include the generated header in the project
+
+add_dependencies(${PROJECT_NAME} generate_image_header)
 # Add libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
                                         fmt::fmt
