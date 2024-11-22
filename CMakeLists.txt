@@ -66,6 +66,7 @@ add_subdirectory(exercise-003)
 
 
 add_subdirectory(exercise-005)
+add_subdirectory(exercise-006)
 # templates
 add_subdirectory(templates)
 
