@@ -13,7 +13,9 @@ find_package(fmt REQUIRED)
 
 
 # add the executable
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME}  main.cpp 
+                                statemachine.cpp
+)
 
 # Add libraries
 target_link_libraries(${PROJECT_NAME} PRIVATE
